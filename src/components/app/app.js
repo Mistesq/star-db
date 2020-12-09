@@ -5,7 +5,7 @@ import RandomPlanet from '../random-planet';
 import ItemList from '../item-list';
 import PersonDetails from '../person-details';
 
-import './app.css';
+import './app.scss';
 
 const App = () => {
   return (
