@@ -4,8 +4,6 @@ import RandomPlanet from '../random-planet';
 import ErrorButton from './../error-button/error-button';
 import ErrorIndicator from './../error-indicator/error-indicator';
 import PeoplePage from './../people-page/people-page';
-import ItemList from './../item-list/item-list';
-import PersonDetails from './../person-details/person-details';
 import SwapiService from './../../services/swapi-service';
 
 import './app.scss';
@@ -56,18 +54,6 @@ class App extends Component {
         <ErrorButton />
 
         <PeoplePage />
-
-        <div className="row mb2 item-list">
-          <div className="col-md-6">
-            <ItemList onItemSelected={this.onPersonSelected}
-                      getData={this.swapiService.getAllPlanets}
-                      renderItem={(item) => item.name} 
-                      />
-          </div>
-          <div className="col-md-6">
-            <PersonDetails personId={this.state.selectedPerson} />
-          </div>
-        </div>
       </div>
     );
   }
