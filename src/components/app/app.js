@@ -5,7 +5,7 @@ import ErrorButton from './../error-button/error-button';
 import ErrorIndicator from './../error-indicator/error-indicator';
 import SwapiService from './../../services/swapi-service';
 import ErrorBoundry from './../error-boundry/index';
-import ItemDetails from '../item-details';
+import ItemDetails, { Record } from '../item-details/item-details';
 import Row from './../Row/row';
 
 import './app.scss';
@@ -49,16 +49,23 @@ class App extends Component {
       <ItemDetails 
         itemId={11} 
         getData={getPerson}
-        getImageUrl={getPersonImage}
-      />
+        getImageUrl={getPersonImage}>
+          
+        <Record field="gender" label="Gender" />
+        <Record field="eyeColor" label="Eye Color" />
+      </ItemDetails>
     );
 
     const starshipDetails = (
       <ItemDetails
         itemId={5} 
         getData={getStarship}
-        getImageUrl={getStarshipImage}
-      />
+        getImageUrl={getStarshipImage}>
+
+        <Record field="model" label="model" />
+        <Record field="length" label="Lenght" />
+        <Record field="costInCredits" label="Cost" />
+      </ItemDetails>
     );
 
 
