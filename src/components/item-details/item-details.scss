@@ -1,13 +1,15 @@
-.person-details {
+.item-details {
     display: flex;
     margin-top: 1rem;
     flex-direction: row;
     padding: 1rem;
 
-  .person-image {
-    width: 30%;
-    height: 30%;
-    border-radius: 10px;
+  .item-image {
+    max-width: 60%;
+
+    img {
+      border-radius: 10px;
+    }
   }
 
   .list-group-flush {

@@ -3,8 +3,10 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorButton from './../error-button/error-button';
 import ErrorIndicator from './../error-indicator/error-indicator';
-import PeoplePage from './../people-page/people-page';
 import SwapiService from './../../services/swapi-service';
+import ErrorBoundry from './../error-boundry/index';
+import ItemDetails from '../item-details';
+import Row from './../Row/row';
 
 import './app.scss';
 
@@ -41,20 +43,36 @@ class App extends Component {
       <RandomPlanet/> :
       null;
 
+      const { getPerson, getStarship, getPersonImage, getStarshipImage } = this.swapiService;
+
+    const personDetails = (
+      <ItemDetails 
+        itemId={11} 
+        getData={getPerson}
+        getImageUrl={getPersonImage}
+      />
+    );
+
+    const starshipDetails = (
+      <ItemDetails
+        itemId={5} 
+        getData={getStarship}
+        getImageUrl={getStarshipImage}
+      />
+    );
+
+
     return (
-      <div className="stardb-app">
-        <Header />
-        { planet }
+      <ErrorBoundry>
+        <div className="stardb-app">
+          <Header />
 
-        <button
-          className="toggle-planet btn btn-warning btn-lg"
-          onClick={this.toggleRandomPlanet}>
-          Toggle Random Planet
-        </button>
-        <ErrorButton />
-
-        <PeoplePage />
-      </div>
+          <Row
+            left={personDetails}
+            right={starshipDetails}
+          />
+        </div>
+      </ErrorBoundry>
     );
   }
 }
