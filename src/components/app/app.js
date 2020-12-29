@@ -88,15 +88,9 @@ class App extends Component {
           <PlanetDetails itemId={13} />
           <StarshipDetails itemId={12} />
 
-          <PersonList>
-            { ({name}) => <span>{name}</span> }
-          </PersonList>
-          <PlanetList>
-            { ({name}) => <span>{name}</span> }
-          </PlanetList>
-          <StarshipList>
-            { ({name}) => <span>{name}</span> }
-          </StarshipList>
+          <PersonList />
+          <PlanetList />
+          <StarshipList />
                     
           <Row
             left={personDetails}
