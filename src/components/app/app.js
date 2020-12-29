@@ -9,6 +9,15 @@ import ItemDetails, { Record } from '../item-details/item-details';
 import ItemList from './../item-list/item-list';
 import Row from './../Row/row';
 
+import {
+  PersonList,
+  PlanetList,
+  StarshipList,
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails
+} from './../sw-components';
+
 import './app.scss';
 
 class App extends Component {
@@ -75,19 +84,19 @@ class App extends Component {
         <div className="stardb-app">
           <Header />
 
-          <ItemList 
-            onItemSelected={() => {}}
-            getData={getAllPeople}>
+          <PersonDetails itemId={11} />
+          <PlanetDetails itemId={13} />
+          <StarshipDetails itemId={12} />
 
+          <PersonList>
             { ({name}) => <span>{name}</span> }
-          </ItemList>
-                  
-          <ItemList 
-            onItemSelected={() => {}}
-            getData={getAllPlanets}>
-              
+          </PersonList>
+          <PlanetList>
             { ({name}) => <span>{name}</span> }
-          </ItemList>
+          </PlanetList>
+          <StarshipList>
+            { ({name}) => <span>{name}</span> }
+          </StarshipList>
                     
           <Row
             left={personDetails}
